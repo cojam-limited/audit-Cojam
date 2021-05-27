@@ -1,3 +1,4 @@
+//SPDX-License-Identifier: MIT
 pragma solidity 0.7.1;
 pragma experimental ABIEncoderV2;
 
@@ -115,7 +116,7 @@ contract MarketManager is MarketAnswerConstraint, AnswerBettingConstraint {
             );
             Answer memory answer;
             answer = _getAnswer(ak);
-            percentage = (m.marketRemainTokens.mul(100)).div(
+            percentage = (m.marketRewardBaseTokens.mul(100)).div(
                 answer.answerTotalTokens
             );
         }
@@ -152,6 +153,7 @@ contract MarketManager is MarketAnswerConstraint, AnswerBettingConstraint {
             cojamFeePercentage,
             charityFeePercentage,
             block.timestamp,
+            0,
             0,
             0,
             0,
